@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DU Expected Cutoff 2026 — Malviya Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+        </div>
+        <span class="brand-name">Malviya Academy</span>
+        <div class="brand-divider"></div>
+        <span class="brand-sub">DU Admission Guidance</span>
+      </div>
+      <div class="header-tags">
+        <span class="tag tag-outline">BA (Hons.)</span>
+        <span class="tag tag-gold">Expected Cutoff 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BANNER ── -->
+  <div class="banner">
+    <div class="banner-inner">
+      <div>
+        <div class="banner-eyebrow">Delhi University &mdash; Admissions 2026</div>
+        <h1>BA (Hons.) Expected Cutoff Explorer</h1>
+        <div class="banner-desc">Browse cutoffs by college, subject, and category &mdash; enter your score to see your chances</div>
+      </div>
+      <div class="banner-stats">
+        <div>
+          <div class="bstat-num" id="statEntries">—</div>
+          <div class="bstat-lbl">Total Entries</div>
+        </div>
+        <div>
+          <div class="bstat-num" id="statColleges">—</div>
+          <div class="bstat-lbl">Colleges</div>
+        </div>
+        <div>
+          <div class="bstat-num" id="statSubjects">—</div>
+          <div class="bstat-lbl">Subjects</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCORE NOTICE ── -->
+  <div class="score-notice" id="scoreNotice">
+    <div class="score-notice-inner">
+      <span class="score-notice-text">
+        Showing results for <strong id="noticeScore">—</strong> marks &nbsp;|&nbsp;
+        Category: <strong id="noticeCat">—</strong>
+      </span>
+      <button class="btn-clear show" onclick="clearScore()">Clear Score Filter</button>
+    </div>
+  </div>
+
+  <!-- ── FILTER BAR ── -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+
+      <div class="fg">
+        <span class="fg-lbl">Your Score</span>
+        <input type="number" id="scoreInput" placeholder="e.g. 820" min="0" max="1000">
+      </div>
+
+      <div class="fg">
+        <span class="fg-lbl">Category</span>
+        <select id="catFilter" onchange="syncAndRender()">
+          <option value="UR">General (UR)</option>
+          <option value="OBC">OBC</option>
+          <option value="SC">SC</option>
+          <option value="ST">ST</option>
+          <option value="EWS">EWS</option>
+          <option value="PwBD">PwBD</option>
+        </select>
+      </div>
+
+      <div class="fg">
+        <span class="fg-lbl">Subject</span>
+        <select id="subjFilter" onchange="render()">
+          <option value="">All Subjects</option>
+        </select>
+      </div>
+
+      <div class="filter-sep"></div>
+
+      <div class="fg" style="flex:1">
+        <span class="fg-lbl">Search</span>
+        <input type="text" id="searchInput" placeholder="Search college or subject...">
+      </div>
+
+      <button class="btn-check" onclick="applyScore()">Check Chances</button>
+      <button class="btn-clear" id="clearBtnBar" onclick="clearScore()">Clear</button>
+
+    </div>
+  </div>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- Legend -->
+    <div class="legend">
+      <span class="legend-title">Score Guide:</span>
+      <span class="leg"><span class="leg-dot" style="background:#166534"></span>Safe &mdash; 30+ marks above cutoff</span>
+      <span class="leg"><span class="leg-dot" style="background:#92400e"></span>Close &mdash; 0&ndash;30 marks above cutoff</span>
+      <span class="leg"><span class="leg-dot" style="background:#9a3412"></span>Stretch &mdash; up to 20 marks below cutoff</span>
+      <span class="leg"><span class="leg-dot" style="background:#d1d5db"></span>Out of Range</span>
+      <span class="leg"><span class="w-badge-leg">W</span>Women's College</span>
+    </div>
+
+    <!-- Score Band Tabs -->
+    <div class="tabs" id="bandTabs"></div>
+
+    <!-- Results -->
+    <div id="results"></div>
+
+  </main>
+
+  <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
+
+  <footer>
+    <p><strong>Malviya Academy</strong> &mdash; Delhi University BA (Hons.) Expected Cutoff Explorer 2026</p>
+    <p>Data is indicative and based on previous year trends. Verify all cutoffs from the official Delhi University admission portal before applying.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Search input live filter -->
+  <script>
+    document.getElementById('searchInput').addEventListener('input', function() { render(); });
+  </script>
+
+</body>
+</html>
